@@ -34,4 +34,6 @@ dependencies {
     compile 'android.arch.lifecycle:runtime:' + archLifeCycleVersion
     compile 'android.arch.lifecycle:extensions:' + archLifeCycleVersion
     annotationProcessor 'android.arch.lifecycle:compiler:' + archLifeCycleVersion
+
+    compile "org.projectlombok:lombok:1.16.18"
 }
