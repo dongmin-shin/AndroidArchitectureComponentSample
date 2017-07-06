@@ -1,5 +1,6 @@
-package com.example.acsha.androidarchitecturecomponentsample;
+package com.example.acsha.androidarchitecturecomponentsample.sampletimer;
 
+import com.example.acsha.androidarchitecturecomponentsample.R;
 import com.example.acsha.androidarchitecturecomponentsample.sampletimer.TimerModel;
 import com.example.acsha.androidarchitecturecomponentsample.sampletimer.TimerSampleActivity;
 import com.example.acsha.androidarchitecturecomponentsample.sampletimer.TimerViewModel;
@@ -13,6 +14,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.assertion.ViewAssertions;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.SmallTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -52,7 +54,7 @@ public class TimerSampleActivityTest {
             }
         });
 
-        onView(withId(R.id.timer_title)).check(ViewAssertions.matches(withText("Hello World!")));
+        onView(ViewMatchers.withId(R.id.timer_title)).check(ViewAssertions.matches(withText("Hello World!")));
     }
 
     @Test
