@@ -21,6 +21,12 @@ public class StickerRecyclerAdapter extends RecyclerView.Adapter<StickerRecycler
 
     List<Sticker> originStickerList = new ArrayList<>();
 
+    private final StickerClickCallback stickerClickCallback;
+
+    public StickerRecyclerAdapter(StickerClickCallback stickerClickCallback) {
+        this.stickerClickCallback = stickerClickCallback;
+    }
+
     public void setStickerList(final List<Sticker> newStickerList) {
         if (newStickerList == null) {
             this.originStickerList = newStickerList;
@@ -62,6 +68,8 @@ public class StickerRecyclerAdapter extends RecyclerView.Adapter<StickerRecycler
     @Override
     public StickerRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         StickerItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.sticker_item, parent, false);
+        binding.setCallback(stickerClickCallback);
+
         return new StickerRecyclerViewHolder(binding);
     }
 

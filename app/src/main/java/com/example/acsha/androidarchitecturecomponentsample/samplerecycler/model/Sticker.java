@@ -18,4 +18,9 @@ public class Sticker {
         this.id = id;
         this.imageUrl = imageUrl;
     }
+
+    @Override
+    public String toString() {
+        return id + "/" + imageUrl;
+    }
 }
