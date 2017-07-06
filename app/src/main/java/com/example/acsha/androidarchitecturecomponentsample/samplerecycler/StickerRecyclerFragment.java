@@ -14,7 +14,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class StickerRecyclerFragment extends LifecycleFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sticker_recycler, container, false);
 
-        adapter = new StickerRecyclerAdapter(stickerClickCallback);
+        adapter = new StickerRecyclerAdapter();
         binding.stickerList.setAdapter(adapter);
 
         return binding.getRoot();
@@ -61,16 +60,4 @@ public class StickerRecyclerFragment extends LifecycleFragment {
             }
         });
     }
-
-    private final StickerClickCallback stickerClickCallback = new StickerClickCallback() {
-        @Override
-        public void onClick(Sticker sticker) {
-            if (getContext() != null) {
-                Toast.makeText(getContext(), "StickerId: " + sticker.getId(), Toast.LENGTH_SHORT).show();
-
-                adapter.playAnimation(sticker);
-
-            }
-        }
-    };
 }

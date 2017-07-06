@@ -8,13 +8,14 @@
             type="com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker" />
 
         <variable
-            name="callback"
-            type="com.example.acsha.androidarchitecturecomponentsample.samplerecycler.StickerClickCallback" />
+            name="adapter"
+            type="com.example.acsha.androidarchitecturecomponentsample.samplerecycler.StickerRecyclerAdapter" />
+
     </data>
 
     <com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/sticker_image"
         android:layout_width="96dp"
         android:layout_height="74dp"
-        android:onClick="@{() -> callback.onClick(sticker)}" />
+        android:onClick="@{() -> adapter.playAnimation(sticker)}" />
 </layout>
