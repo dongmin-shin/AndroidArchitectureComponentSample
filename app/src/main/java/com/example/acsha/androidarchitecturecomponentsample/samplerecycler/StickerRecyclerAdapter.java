@@ -5,10 +5,8 @@ import com.example.acsha.androidarchitecturecomponentsample.databinding.StickerI
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker;
 
 import android.databinding.DataBindingUtil;
-import android.net.Uri;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -69,11 +67,8 @@ public class StickerRecyclerAdapter extends RecyclerView.Adapter<StickerRecycler
 
     @Override
     public void onBindViewHolder(StickerRecyclerViewHolder holder, int position) {
-        Log.d("TEST", "[onBindViewHolder]:" + position);
-
         Sticker sticker = originStickerList.get(position);
-        Uri uri = Uri.parse(sticker.getImageUrl());
-        holder.binding.stickerImage.setImageURI(uri);
+        holder.binding.setSticker(sticker);
 
         // Binding 된 View를 업데이트한다.
         holder.binding.executePendingBindings();
