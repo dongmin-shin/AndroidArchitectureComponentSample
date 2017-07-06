@@ -1,7 +1,7 @@
 package com.example.acsha.androidarchitecturecomponentsample.sampletimer;
 
 import com.example.acsha.androidarchitecturecomponentsample.R;
-import com.example.acsha.androidarchitecturecomponentsample.databinding.ActivityMainBinding;
+import com.example.acsha.androidarchitecturecomponentsample.databinding.ActivityTimerSampleBinding;
 
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.Observer;
@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 
 public class TimerSampleActivity extends LifecycleActivity {
 
-    private ActivityMainBinding binding;
+    private ActivityTimerSampleBinding binding;
     private TimerViewModel viewModel;
 
     @Override
@@ -20,7 +20,7 @@ public class TimerSampleActivity extends LifecycleActivity {
         super.onCreate(savedInstanceState);
 
         // UI Binding
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_timer_sample);
 
         // Get ViewModel
         viewModel = ViewModelProviders.of(this).get(TimerViewModel.class);
