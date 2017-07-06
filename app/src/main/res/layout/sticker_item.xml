@@ -12,10 +12,9 @@
             type="com.example.acsha.androidarchitecturecomponentsample.samplerecycler.StickerClickCallback" />
     </data>
 
-    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/sticker_image"
         android:layout_width="96dp"
         android:layout_height="74dp"
-        android:onClick="@{() -> callback.onClick(sticker)}"
-        android:src="@{sticker.imageUrl}" />
+        android:onClick="@{() -> callback.onClick(sticker)}" />
 </layout>

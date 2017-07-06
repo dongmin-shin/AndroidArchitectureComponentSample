@@ -67,6 +67,9 @@ public class StickerRecyclerFragment extends LifecycleFragment {
         public void onClick(Sticker sticker) {
             if (getContext() != null) {
                 Toast.makeText(getContext(), "StickerId: " + sticker.getId(), Toast.LENGTH_SHORT).show();
+
+                adapter.playAnimation(sticker);
+
             }
         }
     };
