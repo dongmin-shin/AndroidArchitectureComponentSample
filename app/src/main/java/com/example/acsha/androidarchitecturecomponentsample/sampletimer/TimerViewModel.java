@@ -1,4 +1,4 @@
-package com.example.acsha.androidarchitecturecomponentsample;
+package com.example.acsha.androidarchitecturecomponentsample.sampletimer;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

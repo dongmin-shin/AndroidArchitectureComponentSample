@@ -1,5 +1,6 @@
-package com.example.acsha.androidarchitecturecomponentsample;
+package com.example.acsha.androidarchitecturecomponentsample.sampletimer;
 
+import com.example.acsha.androidarchitecturecomponentsample.R;
 import com.example.acsha.androidarchitecturecomponentsample.databinding.ActivityMainBinding;
 
 import android.arch.lifecycle.LifecycleActivity;
@@ -9,7 +10,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-public class MainActivity extends LifecycleActivity {
+public class TimerSampleActivity extends LifecycleActivity {
 
     private ActivityMainBinding binding;
     private TimerViewModel viewModel;

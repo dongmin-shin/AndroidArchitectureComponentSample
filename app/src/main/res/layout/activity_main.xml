@@ -5,7 +5,7 @@
 
         <variable
             name="timer"
-            type="com.example.acsha.androidarchitecturecomponentsample.TimerModel" />
+            type="com.example.acsha.androidarchitecturecomponentsample.sampletimer.TimerModel" />
 
     </data>
 
