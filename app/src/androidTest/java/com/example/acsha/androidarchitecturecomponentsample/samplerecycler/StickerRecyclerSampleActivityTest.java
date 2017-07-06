@@ -2,6 +2,7 @@ package com.example.acsha.androidarchitecturecomponentsample.samplerecycler;
 
 import com.example.acsha.androidarchitecturecomponentsample.R;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -26,6 +27,7 @@ public class StickerRecyclerSampleActivityTest {
     @Rule
     public ActivityTestRule<StickerRecyclerSampleActivity> activityTestRule = new ActivityTestRule<>(StickerRecyclerSampleActivity.class);
 
+    @Ignore
     @Test
     public void test_onClickFirstItem() {
         StickerRecyclerSampleActivity activity = activityTestRule.getActivity();
@@ -34,6 +36,7 @@ public class StickerRecyclerSampleActivityTest {
         onView(withText("StickerId: 0")).inRoot(withDecorView(not(is(activity.getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
+    @Ignore
     @Test
     public void test_onClickLastItem() {
         StickerRecyclerSampleActivity activity = activityTestRule.getActivity();
