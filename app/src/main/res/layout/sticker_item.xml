@@ -17,11 +17,22 @@
 
     </data>
 
-    <com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:fresco="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/sticker_image"
         android:layout_width="96dp"
-        android:layout_height="74dp"
-        android:onClick="@{() -> adapter.playAnimation(sticker)}"
-        fresco:controller="@{draweeController}" />
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sticker_image"
+            android:layout_width="wrap_content"
+            android:layout_height="74dp"
+            android:layout_centerInParent="true"
+            android:onClick="@{() -> adapter.playAnimation(sticker)}"
+            fresco:controller="@{draweeController}"
+            fresco:viewAspectRatio="1.29" />
+
+    </RelativeLayout>
+
+
 </layout>
