@@ -38,7 +38,7 @@ public class StickerDiffUtils {
                 Sticker oldSticker = originStickerList.get(oldItemPosition);
 
                 return newSticker.getId() == oldSticker.getId()
-                        && (newSticker.getImageUrl().equals(oldSticker.getImageUrl()));
+                        && (newSticker.getImageUri().equals(oldSticker.getImageUri()));
             }
         });
     }

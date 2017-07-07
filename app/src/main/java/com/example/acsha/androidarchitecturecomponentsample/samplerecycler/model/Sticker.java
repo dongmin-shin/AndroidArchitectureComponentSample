@@ -1,5 +1,7 @@
 package com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model;
 
+import android.net.Uri;
+
 import lombok.Getter;
 
 /**
@@ -12,15 +14,15 @@ public class Sticker {
     private final int id;
 
     @Getter
-    private final String imageUrl;
+    private final Uri imageUri;
 
-    public Sticker(int id, String imageUrl) {
+    public Sticker(int id, Uri imageUri) {
         this.id = id;
-        this.imageUrl = imageUrl;
+        this.imageUri = imageUri;
     }
 
     @Override
     public String toString() {
-        return id + "/" + imageUrl;
+        return id + "/" + imageUri;
     }
 }

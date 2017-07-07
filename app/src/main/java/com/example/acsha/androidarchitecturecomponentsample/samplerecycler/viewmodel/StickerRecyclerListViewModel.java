@@ -39,7 +39,7 @@ public class StickerRecyclerListViewModel extends AndroidViewModel {
             int stickerResId = context.getResources().getIdentifier("line_sample_" + (i + 1), "drawable", context.getPackageName());
             Uri stickerUri = UriUtils.toUri(context.getResources(), stickerResId);
 
-            Sticker sticker = new Sticker(i, stickerUri.toString());
+            Sticker sticker = new Sticker(i, stickerUri);
             newStickerList.add(sticker);
         }
 
