@@ -29,6 +29,7 @@
             android:layout_height="74dp"
             android:layout_centerInParent="true"
             android:onClick="@{() -> adapter.playAnimation(sticker)}"
+            fresco:actualImageScaleType="centerCrop"
             fresco:controller="@{draweeController}"
             fresco:viewAspectRatio="1.29" />
 

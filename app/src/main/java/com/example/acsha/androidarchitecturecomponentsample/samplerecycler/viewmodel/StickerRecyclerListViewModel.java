@@ -17,7 +17,7 @@ import java.util.List;
 
 public class StickerRecyclerListViewModel extends AndroidViewModel {
 
-    private static final int MAX_STICKER_COUNT = 14;
+    private static final int MAX_STICKER_COUNT = 16;
 
     public final MutableLiveData<List<Sticker>> stickerList = new MutableLiveData<>();
 
