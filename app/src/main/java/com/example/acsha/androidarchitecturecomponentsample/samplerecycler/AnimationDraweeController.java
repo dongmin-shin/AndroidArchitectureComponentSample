@@ -1,6 +1,5 @@
 package com.example.acsha.androidarchitecturecomponentsample.samplerecycler;
 
-import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.StickerRecyclerAdapter;
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.ControllerListener;
@@ -10,6 +9,7 @@ import com.facebook.imagepipeline.image.ImageInfo;
 
 import android.animation.ValueAnimator;
 import android.graphics.drawable.Animatable;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.List;
@@ -33,8 +33,42 @@ public class AnimationDraweeController {
     private DraweeController getNormalDraweeController(Sticker sticker) {
         return Fresco.newDraweeControllerBuilder()
                 .setUri(sticker.getImageUrl())
+                .setControllerListener(normalControllerListener)
                 .build();
     }
+
+    @NonNull
+    private final ControllerListener<ImageInfo> normalControllerListener = new ControllerListener<ImageInfo>() {
+        @Override
+        public void onSubmit(String id, Object callerContext) {
+            Log.d("TEST", "[onSubmit]");
+        }
+
+        @Override
+        public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
+            Log.d("TEST", "[onFinalImageSet]: " + id);
+        }
+
+        @Override
+        public void onIntermediateImageSet(String id, ImageInfo imageInfo) {
+            Log.d("TEST", "[onIntermediateImageSet]");
+        }
+
+        @Override
+        public void onIntermediateImageFailed(String id, Throwable throwable) {
+            Log.d("TEST", "[onIntermediateImageFailed]");
+        }
+
+        @Override
+        public void onFailure(String id, Throwable throwable) {
+            Log.d("TEST", "[onFailure]");
+        }
+
+        @Override
+        public void onRelease(String id) {
+            Log.d("TEST", "[onRelease]");
+        }
+    };
 
     private DraweeController getAnimateDraweeController(Sticker sticker) {
         return Fresco.newDraweeControllerBuilder()

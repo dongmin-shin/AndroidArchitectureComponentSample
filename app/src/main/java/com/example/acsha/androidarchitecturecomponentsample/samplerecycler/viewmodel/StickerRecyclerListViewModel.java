@@ -3,9 +3,9 @@ package com.example.acsha.androidarchitecturecomponentsample.samplerecycler.view
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.UriUtils;
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker;
 
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
-import android.content.Context;
 import android.net.Uri;
 
 import java.util.ArrayList;
@@ -15,15 +15,26 @@ import java.util.List;
  * @author dong.min.shin on 2017. 7. 6..
  */
 
-public class StickerRecyclerListViewModel extends ViewModel {
+public class StickerRecyclerListViewModel extends AndroidViewModel {
 
     private static final int MAX_STICKER_COUNT = 14;
 
     public final MutableLiveData<List<Sticker>> stickerList = new MutableLiveData<>();
 
-    public void initLoad(Context context) {
-        List<Sticker> newStickerList = new ArrayList<>();
+    public StickerRecyclerListViewModel(Application application) {
+        super(application);
 
+        initLoad();
+    }
+
+    public MutableLiveData<List<Sticker>> getStickerList() {
+        return stickerList;
+    }
+
+    private void initLoad() {
+        Application context = this.getApplication();
+
+        List<Sticker> newStickerList = new ArrayList<>();
         for (int i = 0; i < MAX_STICKER_COUNT; i++) {
             int stickerResId = context.getResources().getIdentifier("line_sample_" + (i + 1), "drawable", context.getPackageName());
             Uri stickerUri = UriUtils.toUri(context.getResources(), stickerResId);
@@ -35,7 +46,4 @@ public class StickerRecyclerListViewModel extends ViewModel {
         stickerList.setValue(newStickerList);
     }
 
-    public MutableLiveData<List<Sticker>> getStickerList() {
-        return stickerList;
-    }
 }
