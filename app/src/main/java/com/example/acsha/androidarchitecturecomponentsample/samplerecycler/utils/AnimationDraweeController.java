@@ -6,7 +6,6 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.ControllerListener;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawable;
-import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
@@ -35,13 +34,16 @@ public class AnimationDraweeController {
     }
 
     private DraweeController getNormalDraweeController(Sticker sticker) {
-        ImageRequest imageRequest = ImageRequestBuilder
-                .newBuilderWithSource(sticker.getImageUri())
-                .build();
 
         return Fresco.newDraweeControllerBuilder()
-                .setImageRequest(imageRequest)
+                .setImageRequest(createImageRequest(sticker))
                 .setControllerListener(normalControllerListener)
+                .build();
+    }
+
+    private ImageRequest createImageRequest(Sticker sticker) {
+        return ImageRequestBuilder
+                .newBuilderWithSource(sticker.getImageUri())
                 .build();
     }
 
@@ -79,10 +81,8 @@ public class AnimationDraweeController {
     };
 
     private DraweeController getAnimateDraweeController(Sticker sticker) {
-        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(sticker.getImageUri()).build();
-
         return Fresco.newDraweeControllerBuilder()
-                .setImageRequest(imageRequest)
+                .setImageRequest(createImageRequest(sticker))
                 .setControllerListener(new ControllerListener<ImageInfo>() {
                     @Override
                     public void onSubmit(String id, Object callerContext) {

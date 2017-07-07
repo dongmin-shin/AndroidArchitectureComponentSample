@@ -17,7 +17,7 @@ import java.util.List;
 
 public class StickerRecyclerListViewModel extends AndroidViewModel {
 
-    private static final int MAX_STICKER_COUNT = 16;
+    private static final int MAX_STICKER_COUNT = 24;
 
     public final MutableLiveData<List<Sticker>> stickerList = new MutableLiveData<>();
 
@@ -36,7 +36,10 @@ public class StickerRecyclerListViewModel extends AndroidViewModel {
 
         List<Sticker> newStickerList = new ArrayList<>();
         for (int i = 0; i < MAX_STICKER_COUNT; i++) {
-            int stickerResId = context.getResources().getIdentifier("line_sample_" + (i + 1), "drawable", context.getPackageName());
+            String gifStickerName = "line_sample_" + (i + 1);
+            gifStickerName = "key_" + (i + 1);
+
+            int stickerResId = context.getResources().getIdentifier(gifStickerName, "drawable", context.getPackageName());
             Uri stickerUri = UriUtils.toUri(context.getResources(), stickerResId);
 
             Sticker sticker = new Sticker(i, stickerUri);

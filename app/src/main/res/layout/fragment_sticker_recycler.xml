@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sticker_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
+        android:background="#FFBBCC"
         app:layoutManager="GridLayoutManager"
         app:spanCount="4" />
 </layout>

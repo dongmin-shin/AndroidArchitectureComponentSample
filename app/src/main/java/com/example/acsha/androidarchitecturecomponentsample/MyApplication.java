@@ -1,6 +1,7 @@
 package com.example.acsha.androidarchitecturecomponentsample;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 
 import android.app.Application;
 
@@ -14,6 +15,10 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Fresco.initialize(this);
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+                .setDownsampleEnabled(true)
+                .build();
+
+        Fresco.initialize(this, config);
     }
 }
