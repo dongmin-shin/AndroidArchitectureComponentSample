@@ -1,5 +1,6 @@
-package com.example.acsha.androidarchitecturecomponentsample.samplerecycler;
+package com.example.acsha.androidarchitecturecomponentsample.samplerecycler.utils;
 
+import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.StickerRecyclerAdapter;
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.ControllerListener;

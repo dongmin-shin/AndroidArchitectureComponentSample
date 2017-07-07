@@ -3,6 +3,8 @@ package com.example.acsha.androidarchitecturecomponentsample.samplerecycler;
 import com.example.acsha.androidarchitecturecomponentsample.R;
 import com.example.acsha.androidarchitecturecomponentsample.databinding.StickerItemBinding;
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker;
+import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.utils.AnimationDraweeController;
+import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.utils.StickerDiffUtils;
 import com.facebook.drawee.interfaces.DraweeController;
 
 import android.databinding.DataBindingUtil;
@@ -34,37 +36,13 @@ public class StickerRecyclerAdapter extends RecyclerView.Adapter<StickerRecycler
             notifyItemRangeInserted(0, newStickerList.size());
 
         } else {
-            DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
-                @Override
-                public int getOldListSize() {
-                    return originStickerList.size();
-                }
-
-                @Override
-                public int getNewListSize() {
-                    return newStickerList.size();
-                }
-
-                @Override
-                public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                    // Sticker의 Id를 이용해 같은 아이템인지 여부를 비교
-                    return originStickerList.get(oldItemPosition).getId() == newStickerList.get(newItemPosition).getId();
-                }
-
-                @Override
-                public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-                    Sticker newSticker = newStickerList.get(newItemPosition);
-                    Sticker oldSticker = originStickerList.get(oldItemPosition);
-
-                    return newSticker.getId() == oldSticker.getId()
-                            && (newSticker.getImageUrl().equals(oldSticker.getImageUrl()));
-                }
-            });
+            DiffUtil.DiffResult result = StickerDiffUtils.getDiffResult(newStickerList, originStickerList);
 
             originStickerList = newStickerList;
             result.dispatchUpdatesTo(this);
         }
     }
+
 
     @Override
     public StickerRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

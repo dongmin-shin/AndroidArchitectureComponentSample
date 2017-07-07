@@ -44,8 +44,10 @@ public class StickerRecyclerFragment extends LifecycleFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Create ViewModel
         StickerRecyclerListViewModel viewModel = ViewModelProviders.of(this).get(StickerRecyclerListViewModel.class);
 
+        // Subscribe UI
         subscribeUi(viewModel);
     }
 
