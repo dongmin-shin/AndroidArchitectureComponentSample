@@ -5,7 +5,6 @@ import com.example.acsha.androidarchitecturecomponentsample.databinding.StickerI
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.model.Sticker;
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.utils.AnimationDraweeController;
 import com.example.acsha.androidarchitecturecomponentsample.samplerecycler.utils.StickerDiffUtils;
-import com.facebook.drawee.interfaces.DraweeController;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.util.DiffUtil;
@@ -62,10 +61,7 @@ public class StickerRecyclerAdapter extends RecyclerView.Adapter<StickerRecycler
 
         Sticker sticker = originStickerList.get(position);
         holder.binding.setSticker(sticker);
-
-        // Set Controller
-        DraweeController draweeController = animationDraweeController.getDraweeController(payloads, sticker);
-        holder.binding.stickerImage.setController(draweeController);
+        holder.binding.setDraweeController(animationDraweeController.getDraweeController(payloads, sticker));
 
         // Binding 된 View를 업데이트한다.
         holder.binding.executePendingBindings();

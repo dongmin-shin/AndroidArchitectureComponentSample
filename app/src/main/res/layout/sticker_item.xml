@@ -11,11 +11,17 @@
             name="adapter"
             type="com.example.acsha.androidarchitecturecomponentsample.samplerecycler.StickerRecyclerAdapter" />
 
+        <variable
+            name="draweeController"
+            type="com.facebook.drawee.interfaces.DraweeController" />
+
     </data>
 
     <com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
         android:id="@+id/sticker_image"
         android:layout_width="96dp"
         android:layout_height="74dp"
-        android:onClick="@{() -> adapter.playAnimation(sticker)}" />
+        android:onClick="@{() -> adapter.playAnimation(sticker)}"
+        fresco:controller="@{draweeController}" />
 </layout>
